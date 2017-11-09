@@ -62,7 +62,7 @@ void recordData(const char* content, const char* username){
 		char pm25[11];
 		extractItem(pJson, pm25, "pm25");
 		char sql[200];
-		sprintf(sql, "insert into `recordData`(username,nodeID,date,Temperature,Humidity,PM25) values('%s','%s',NOW(),%s,%s,%s)", username, nodeID, temperature, humidity, pm25);
+		sprintf(sql, "insert into `recorddata`(username,nodeID,date,Temperature,Humidity,PM25) values('%s','%s',NOW(),%s,%s,%s)", username, nodeID, temperature, humidity, pm25);
 		mysql_ping(&mysqlDataStore);
 		mysql_query(&mysqlDataStore, sql);
 	}
