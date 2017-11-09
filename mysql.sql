@@ -43,6 +43,33 @@ INSERT INTO `acls` VALUES (1,'jiaozhu','mytopic',2);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `recorddata`
+--
+
+DROP TABLE IF EXISTS `recorddata`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `recorddata` (
+  `username` varchar(25) NOT NULL,
+  `nodeID` varchar(10) NOT NULL,
+  `date` datetime NOT NULL,
+  `temperature` double(8,2) NOT NULL,
+  `humidity` double(8,2) NOT NULL,
+  `pm25` double(8,2) NOT NULL,
+  PRIMARY KEY (`username`,`date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `recorddata`
+--
+
+LOCK TABLES `recorddata` WRITE;
+/*!40000 ALTER TABLE `recorddata` DISABLE KEYS */;
+/*!40000 ALTER TABLE `recorddata` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -78,4 +105,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-09 19:56:03
+-- Dump completed on 2017-11-09 21:25:41
