@@ -33,7 +33,7 @@ void extractItem(cJSON* pJson, char* item, const char* itemName){
 			}else if(cJSON_IsNumber(jsonItem)){
 				sprintf(temp, "%d", jsonItem->valueint);
 			}else{
-				strcpy(temp, "NULL");
+				strcpy(temp, "-1");
 			}
 		}else{
 			if(cJSON_IsString(jsonItem)){
@@ -41,12 +41,12 @@ void extractItem(cJSON* pJson, char* item, const char* itemName){
 			}else if(cJSON_IsNumber(jsonItem)){
 				sprintf(temp, "%0.2lf", jsonItem->valuedouble);
 			}else{
-				strcpy(temp, "NULL");
+				strcpy(temp, "-1");
 			}
 		}
 		strcpy(item, temp);
 	}else{
-		strcpy(item, "NULL");
+		strcpy(item, "-1");
 	}
 }
 
