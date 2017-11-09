@@ -7,7 +7,7 @@
 #define DBhost "localhost"				// 数据库IP
 #define DBuser "root"					// 数据库用户名
 #define DBpass "12345"					// 数据库密码
-#define DBdb "tinylink_customer"			// 数据库名称
+#define DBdb "mqtt_user"				// 数据库名称
 
 int connectDB();
 void disconnectDB();
