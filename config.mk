@@ -121,7 +121,7 @@ CLIENT_CFLAGS:=${CFLAGS} ${CPPFLAGS} -I../lib -DVERSION="\"${VERSION}\""
 ifneq ($(or $(findstring $(UNAME),FreeBSD), $(findstring $(UNAME),OpenBSD)),)
 	BROKER_LIBS:=-lm
 else
-	BROKER_LIBS:=-ldl -lm -lmysqlclient
+	BROKER_LIBS:=-ldl -lm ../lib/libmysqlclient.a -lz -lpthread ../lib/libmosquitto.so.${SOVERSION}
 endif
 LIB_LIBS:=
 PASSWD_LIBS:=
