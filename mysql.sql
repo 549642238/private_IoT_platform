@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.51, for Win32 (ia32)
+-- MySQL dump 10.13  Distrib 5.5.35, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: mqtt_user
 -- ------------------------------------------------------
--- Server version	5.1.51-community
+-- Server version	5.5.35-1ubuntu1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -50,13 +50,9 @@ DROP TABLE IF EXISTS `recorddata`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `recorddata` (
-  `username` varchar(25) NOT NULL,
-  `nodeID` varchar(10) NOT NULL,
-  `date` datetime NOT NULL,
-  `temperature` double(8,2) NOT NULL,
-  `humidity` double(8,2) NOT NULL,
-  `pm25` double(8,2) NOT NULL,
-  PRIMARY KEY (`username`,`date`)
+  `username` varchar(25) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `data` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -66,6 +62,7 @@ CREATE TABLE `recorddata` (
 
 LOCK TABLES `recorddata` WRITE;
 /*!40000 ALTER TABLE `recorddata` DISABLE KEYS */;
+INSERT INTO `recorddata` VALUES ('jiaozhu','2018-05-20 16:27:25','{\"humidity\":\"12.50\"}'),('jiaozhu','2018-05-20 16:27:52','{\"humidity\":\"12.50\"}');
 /*!40000 ALTER TABLE `recorddata` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,4 +102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-09 21:50:50
+-- Dump completed on 2018-05-20 16:35:55

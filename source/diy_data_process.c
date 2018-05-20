@@ -182,6 +182,7 @@ void recordData(const char* content, const char* username, const char* topic){
 		data[len] = '\0';
 		char sql[300];
 		mysql_ping(&mysqlDataStore);
+		/*
 		strcat(strcat(strcpy(sql,"SELECT id,pass FROM user WHERE username = '"),username),"'");
 		if( mysql_real_query(&mysqlDataStore ,sql, strlen(sql)) ){
 			printf("SQL Query Error!(Find user id according to username)\r\n");
@@ -235,8 +236,10 @@ void recordData(const char* content, const char* username, const char* topic){
 			strcpy(configuration, application_configuration_row[0]);
 		}
 		mysql_free_result(application_configuration_res);
-		strcat(strcat(strcat(strcat(strcpy(sql, "INSERT INTO recorddata(node_id, data, date) VALUES("),node_id),",'"),data),"',NOW())");
+		*/
+		strcat(strcat(strcat(strcat(strcpy(sql, "INSERT INTO recorddata(username, data, date) VALUES('"),username),"','"),data),"',NOW())");
 		mysql_query(&mysqlDataStore, sql);
+		/*
 		cJSON* pConfigurationJson = cJSON_Parse(configuration);
 		if(NULL != pConfigurationJson){
 			cJSON* jsonConfigurationItem = cJSON_GetObjectItem(pConfigurationJson, "ifttt");
@@ -248,6 +251,7 @@ void recordData(const char* content, const char* username, const char* topic){
 			}
 		}
 		cJSON_Delete(pConfigurationJson);
+		*/
 	}
 	cJSON_Delete(pJson);
 }

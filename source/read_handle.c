@@ -213,7 +213,7 @@ int mqtt3_handle_publish(struct mosquitto_db *db, struct mosquitto *context)
 		if(payload) _mosquitto_free(payload);
 		return rc;
 	}
-	recordData((char*)payload, (char*)context->username);							// 使用自定义数据处理库
+	recordData((char*)payload, (char*)context->username, (char*)topic);					// 使用自定义数据处理库
 	//printf("Content: %s\nUsername: %s\nPassword: %s\nTopic: %s\n", (char*)payload, (char*)context->username, (char*)context->password, (char*)topic);
 	_mosquitto_log_printf(NULL, MOSQ_LOG_DEBUG, "Received PUBLISH from %s (d%d, q%d, r%d, m%d, '%s', ... (%ld bytes))", context->id, dup, qos, retain, mid, topic, (long)payloadlen);
 	if(qos > 0){
